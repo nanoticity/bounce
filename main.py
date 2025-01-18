@@ -44,6 +44,7 @@ async def main():
     crazy2 = False
     title = True
     run = False
+    hit = False
     while title:
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
@@ -132,8 +133,13 @@ async def main():
         bally += grav
         ballx += ballx_add
         
-        if ballx >= paddle1_startx and ballx <= paddle1_endx and bally >= 740 and bally <= 1100:
-            grav *= -1
+        if bally <= 730:
+            hit = False
+        
+        if ballx >= paddle1_startx and ballx <= paddle1_endx and bally >= 740 and bally <= 800:
+            if not hit:
+                grav *= -1
+                hit = True
             if crazy2:
                 flash = random.choice([True, False])
                 direction = random.randint(1, 2)
@@ -173,32 +179,7 @@ async def main():
             grav *= -1
         else:
             grav += 0.9
-        """   
-        if keys[pygame.K_c]:
-            filling = not filling
-        elif keys[pygame.K_x]:
-            crazy = not crazy
-        elif keys[pygame.K_v]:
-            glitch = not glitch
-        elif keys[pygame.K_SPACE] and keys[pygame.K_h]:
-            hacks = not hacks
-        elif keys[pygame.K_r]:
-            paddle_length = 250
-            ballx = 300
-            bally = 500
-            ballx_add = 3
-            grav = 0
-        elif keys[pygame.K_h]:
-            paddle1_startx = ballx - (paddle_length / 2)
-        elif keys[pygame.K_b]:
-            obs = not obs
-        elif keys[pygame.K_n]:
-            crazy2 = not crazy2
-        elif keys[pygame.K_q]:
-            hacks3 = not hacks3
-        elif keys[pygame.K_p]:
-            hacks4 = not hacks4
-            """
+        
         if paddle1_startx <= 0:
             paddle1_startx = 0
         elif (paddle1_startx + paddle_length) >= 800:
