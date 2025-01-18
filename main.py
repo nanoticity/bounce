@@ -22,6 +22,8 @@ async def main():
     streak = 0
     num = 1
 
+    grav_plus = 0.5
+    
     hacks = False
     hacks3 = False
     hacks4 = False
@@ -167,6 +169,8 @@ async def main():
                     ballx_add = 0
                 num = 1
             streak += num
+            if grav_plus < 0.9:
+                grav_plus = 0.5 + streak/100
             if not hacks4 and paddle_length >= 100:
                 paddle_length -= 2
         elif bally >= 1100:
@@ -185,7 +189,7 @@ async def main():
         elif bally <= 30:
             grav *= -1
         else:
-            grav += 0.9
+            grav += grav_plus
         
         if paddle1_startx <= 0:
             paddle1_startx = 0
