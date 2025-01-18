@@ -16,6 +16,7 @@ def text(text, textx, texty, size, r, g, b):
     screen.blit(text, textpos) 
 
 async def main():
+    pygame.display.set_caption("Bounce!")
     paddle_length = 250
 
     streak = 0
