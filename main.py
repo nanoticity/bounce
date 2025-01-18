@@ -96,6 +96,7 @@ async def main():
                     hacks = not hacks
                 elif e.key == pygame.K_r:
                     paddle_length = 250
+                    grav_plus = 0.5
                     ballx = 300
                     bally = 500
                     ballx_add = 3
@@ -175,6 +176,7 @@ async def main():
                 paddle_length -= 2
         elif bally >= 1100:
             streaks.append(streak)
+            grav_plus = 0.5
             streak = 0
             paddle_length = 250 
             ballx = 300
