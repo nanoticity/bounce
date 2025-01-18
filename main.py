@@ -136,6 +136,12 @@ async def main():
         if bally <= 730:
             hit = False
         
+        if pygame.mouse.get_pressed()[0]:
+            if pygame.mouse.get_pos()[0] >= 400:
+                paddle1_startx += 20
+            elif pygame.mouse.get_pos()[0]< 400:
+                paddle1_startx -= 20
+        
         if ballx >= paddle1_startx and ballx <= paddle1_endx and bally >= 740 and bally <= 800:
             if not hit:
                 grav *= -1
