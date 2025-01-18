@@ -6,4 +6,4 @@ You can use arrow keys to move or 'a' and 'd'. For users on mobile, click on the
 
 [You can play it here!](https://nanoticity.github.io/bounce/) 
 
-Home you enjoy as always!
+Hope you enjoy as always!
