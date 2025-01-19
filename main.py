@@ -27,6 +27,7 @@ async def main():
     hacks = False
     hacks3 = False
     hacks4 = False
+    scored = False
 
     streaks = []
 
@@ -139,6 +140,7 @@ async def main():
         
         if bally <= 730:
             hit = False
+            scored = False
         
         if pygame.mouse.get_pressed()[0]:
             if pygame.mouse.get_pos()[0] >= 400:
@@ -169,7 +171,9 @@ async def main():
                 else:
                     ballx_add = 0
                 num = 1
-            streak += num
+            if not scored:
+                streak += num
+                scored = True
             if grav_plus < 0.9:
                 grav_plus = 0.5 + streak/100
             if not hacks4 and paddle_length >= 100:
